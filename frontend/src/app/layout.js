@@ -1,14 +1,22 @@
 import "./globals.css";
+import Navbar from "../components/Navbar";
 
 export const metadata = {
   title: "AI Doctor",
-  description: "An AI-powered medical assistant",
+  description: "Your AI-powered medical assistant",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gray-900 text-white">{children}</body>
+      <body>
+        <Navbar />
+        <main >{children}</main> 
+      </body>
     </html>
   );
 }
+

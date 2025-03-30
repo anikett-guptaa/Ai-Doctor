@@ -1,7 +1,9 @@
-import Image from "next/image";
+import Hero from "../components/Hero";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <div>Hey Doctor</div>
+    <div className="min-h-screen">
+      <Hero />
+    </div>
   );
 }
