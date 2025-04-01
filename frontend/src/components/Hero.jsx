@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Light } from "./light";
 
 export default function Hero() {
     const texts = ["Your AI-Powered Doctor", "Healthcare, Smarter", "Medical Assistance, Redefined"];
@@ -11,7 +12,6 @@ export default function Hero() {
 
     useEffect(() => {
         const speed = isDeleting ? 50 : 100;
-
         const typing = setTimeout(() => {
             if (!isDeleting && charIndex < texts[index].length) {
                 setText((prev) => prev + texts[index][charIndex]);
@@ -29,24 +29,36 @@ export default function Hero() {
                 }
             }
         }, speed);
-
         return () => clearTimeout(typing);
     }, [charIndex, isDeleting, index]);
 
     return (
-        <section className="flex flex-col items-center justify-center h-screen text-center bg-gradient-to-b from-white to-gray-200">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900">
-                {text}
-                <span className="text-blue-600">|</span>
-            </h1>
-            <p className="text-lg text-gray-600 mt-4">AI-driven healthcare at your fingertips.</p>
-            <Link
-                href="/home"
-                className="mt-6 px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition"
-            >
-                Get Started
-            </Link>
+        <div className="relative ">
+            
+            <div className="w-full pt-30 sm:pt-40 bg-[#0c2b43]"> 
+                <Light className=""> 
+                    <div className="flex flex-col items-center justify-center h-full text-center p-4">
+                        <h1 className="text-4xl md:text-6xl font-bold text-white">
+                            {text}
+                            <span className="text-blue-400">|</span>
+                        </h1>
+                        <p className="text-lg text-gray-300 mt-4">
+                            AI-driven healthcare at your fingertips.
+                        </p>
+                        <Link
+                            href="/home"
+                            className="mt-6 relative inline-flex h-16 overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-[#89c051] focus:ring-offset-2 focus:ring-offset-[#89c051] no-underline"
+                        >
+                            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#89c051_0%,#0c2b43_50%,#89c051_100%)]" />
+                            <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-slate-900 px-8 py-4 text-xl font-semibold text-white backdrop-blur-3xl transition-all hover:bg-slate-800">
+                                Get Started
+                            </span>
+                        </Link>
+                    </div>
+                </Light>
+            </div>
 
-        </section>
+            <div />
+        </div>
     );
 }
