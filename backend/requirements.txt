@@ -1,0 +1,14 @@
+pandas 
+scikit-learn
+tensorflow
+nltk 
+keras
+seaborn 
+matplotlib 
+numpy 
+exception 
+langchain
+openai
+python-dotenv
+langchain-community
+langchain_openai 
